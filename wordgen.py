@@ -38,6 +38,7 @@ class WordGen(object):
 
   @cherrypy.expose
   def generate_word(self, length=randrange(1, 26), word=""):
+    length=int(length)
     if len(word) == length:
       return word
     new_letter = letters[randrange(2, len(letters))]
