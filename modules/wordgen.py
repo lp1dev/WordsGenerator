@@ -1,6 +1,6 @@
-import cherrypy
 from sys import exit
 from random import randrange
+from modules.colors import lettersColors
 from rules import wordRules
 
 vowels = "aeiouy"
@@ -36,7 +36,16 @@ class WordGen(object):
         exit(e)
     return True
 
-  @cherrypy.expose
+  def index(self, length=randrange(1, 26), word=""):
+    output = ""
+    word = self.generate_word(int(length), word)
+    for letter in word:
+      if letter in lettersColors.keys():
+        output += '<i style="color:%s">%s</i>' %(lettersColors[letter], letter)
+      else:
+        output += letter
+    return output
+
   def generate_word(self, length=randrange(1, 26), word=""):
     length=int(length)
     if len(word) == length:
