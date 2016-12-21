@@ -11,11 +11,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return wordgen.index()
+  return wordgen.index(randrange(2, 26))
 
-@app.route('/<length>')
+@app.route('/generate/<length>')
 def index_length(length):
-  return wordgen.index(int(length))
+  try:
+    return wordgen.index(int(length))
+  except Exception as e:
+    return "The parameter must be a valid number"
+
+@app.route('/colorize/<word>')
+def colorize_word(word):
+  return wordgen.colorize(word)
 
 def	main():
   app.run(host=host, port=port)

@@ -36,15 +36,18 @@ class WordGen(object):
         exit(e)
     return True
 
-  def index(self, length=randrange(1, 26), word=""):
+  def colorize(self, word):
     output = ""
-    word = self.generate_word(int(length), word)
     for letter in word:
       if letter in lettersColors.keys():
         output += '<i style="color:%s">%s</i>' %(lettersColors[letter], letter)
       else:
         output += letter
     return output
+  
+  def index(self, length=randrange(1, 26), word=""):
+    word = self.generate_word(int(length), word)
+    return self.colorize(word)
 
   def generate_word(self, length=randrange(1, 26), word=""):
     length=int(length)
