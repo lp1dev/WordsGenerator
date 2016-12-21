@@ -44,6 +44,15 @@ class WordGen(object):
       else:
         output += letter
     return output
+
+  def colors_only(self, word):
+    output = ""
+    for letter in word:
+      if letter in lettersColors.keys():
+        output += '<i style="color:%s">%s</i>' %(lettersColors[letter], '#')
+      else:
+        output += letter
+    return output    
   
   def index(self, length=randrange(1, 26), word=""):
     word = self.generate_word(int(length), word)

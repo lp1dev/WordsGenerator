@@ -24,6 +24,10 @@ def index_length(length):
 def colorize_word(word):
   return wordgen.colorize(word)
 
+@app.route('/colors_only/<word>')
+def colors_only(word):
+  return wordgen.colors_only(word)
+
 def	main():
   app.run(host=host, port=port)
 
