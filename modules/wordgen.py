@@ -1,5 +1,6 @@
 from sys import exit
 from random import randrange
+from subprocess import run
 from modules.colors import lettersColors
 from rules import wordRules
 
@@ -10,7 +11,11 @@ letters = vowels + consonants
 class WordGen(object):
   def     usage(self):
     return 0
-  
+
+  def audio_output(self, word):
+    run('echo %s | text2wave -o static/audio/%s.wav' %(word, word), shell=True)
+    return 'audio/%s.wav' %word
+
   def num_vowels(self, word):
     total = 0
     for letter in word:

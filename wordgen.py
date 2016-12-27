@@ -9,10 +9,17 @@ port='8083'
 wordgen = WordGen()
 app = Flask(__name__)
 
+@app.route('/audio/<file>')
+def audio(file):
+  return app.send_static_file('audio/%s' %file)
+
 @app.route('/')
 def index():
   length = wordgen.generate_length()
-  return wordgen.index(length)
+  word = wordgen.generate_word(length)
+  audio = wordgen.audio_output(word)
+  audio_html = '<br/><audio controls="controls"><source src="%s" type="audio/wav"/></audio>' %audio
+  return wordgen.colorize(word) + audio_html
 
 @app.route('/generate/<length>')
 def index_length(length):
