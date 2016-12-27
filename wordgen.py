@@ -11,7 +11,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return wordgen.index(randrange(2, 26))
+  length = wordgen.generate_length()
+  return wordgen.index(length)
 
 @app.route('/generate/<length>')
 def index_length(length):

@@ -58,7 +58,17 @@ class WordGen(object):
     word = self.generate_word(int(length), word)
     return self.colorize(word)
 
-  def generate_word(self, length=randrange(1, 26), word=""):
+  def generate_length(self):
+    iterations = 26
+    i = 0
+    length = 0
+    while i < iterations:
+      length += randrange(1, 26)
+      i += 1
+    length = (length / iterations) / (randrange(1, 6))  
+    return length
+  
+  def generate_word(self, length=5, word=""):
     length=int(length)
     if len(word) == length:
       return word
