@@ -13,7 +13,8 @@ class WordGen(object):
     return 0
 
   def audio_output(self, word):
-    run('echo %s | text2wave -o static/audio/%s.wav' %(word, word), shell=True)
+    run('pwd', shell=True)
+    run('echo %s | text2wave -o /tmp/wordgen/%s.wav' %(word, word), shell=True)
     return 'audio/%s.wav' %word
 
   def num_vowels(self, word):

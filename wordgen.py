@@ -3,15 +3,17 @@
 from flask import Flask
 from random import randrange
 from modules.wordgen import WordGen
+from os import path
 
 host='0.0.0.0'
 port='8083'
 wordgen = WordGen()
 app = Flask(__name__)
+app._static_folder = path.abspath("/tmp/wordgen/")
 
 @app.route('/audio/<file>')
 def audio(file):
-  return app.send_static_file('audio/%s' %file)
+  return app.send_static_file('%s' %file)
 
 @app.route('/')
 def index():
