@@ -44,4 +44,4 @@ You can access the following objects and methods :
 - self.num_vowels(word)
 - self.num_consonants(word)
 
-** Since the rules are evaluated using eval(), YOU MUST NOT use the generator on an environment containing sensitive data and only give access to the rules it to restricted authorized users ! **
+*Since the rules are evaluated using eval(), YOU MUST NOT use the generator on an environment containing sensitive data and only give access to the rules it to restricted authorized users !*
