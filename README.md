@@ -21,6 +21,13 @@ It is a HTTP API to generate random letters associations according to a list of 
 
 - Python 3.4+
 - Flask
+- festival
+
+### Install
+
+With Python-Pip installed
+
+pip install -r requirements.txt
 
 ### Usage
 
