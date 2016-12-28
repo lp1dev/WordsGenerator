@@ -1,5 +1,6 @@
+#Conditions for a word to be invalid
 wordRules = {
-    "not len(word) or new_letter != word[len(word) - 1]",
-    "len(word) < 2 or new_letter in vowels or self.num_vowels(word) >= len(word) / 3",
-    "len(word) < 2 or not last_letter or (new_letter in vowels) != (last_letter in vowels)"
+    "len(word) and new_letter == last_letter",
+    "len(word) > 2 and self.num_vowels(word) < len(word) / 3 and new_letter not in vowels",
+    "len(word) > 1 and self.num_consonants(word) == len(word) and new_letter in consonants"
 }

@@ -36,7 +36,7 @@ class WordGen(object):
       last_letter = word[len(word) - 1]
     for rule in wordRules:
       try:
-        if not eval(rule):
+        if eval(rule) is True:#The rules are invalidant conditions
           return False
       except SyntaxError as e:
         exit(e)
